@@ -51,7 +51,6 @@ class AllExpensesWidget extends StatelessWidget {
               AllExpensesHeader(),
               AllExpensesItemListView(items: items),
               Spacer(),
-              //SizedBox(height: 300, child: Container(color: Colors.red)),
             ],
           ),
         ),
