@@ -10,12 +10,11 @@ class HomeDesktopLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Expanded(child: CustomDrawer()),
+        const Expanded(flex: 1, child: CustomDrawer()),
         const SizedBox(width: 32),
-        AllExpensesWidget(),
+        Expanded(flex: 3, child: AllExpensesWidget()),
+        Expanded(flex: 2, child: SizedBox()),
       ],
     );
   }
 }
-
-

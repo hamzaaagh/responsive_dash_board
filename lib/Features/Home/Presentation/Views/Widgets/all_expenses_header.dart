@@ -10,22 +10,19 @@ class AllExpensesHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Text(
-                "All Expenses",
-                style: AppStyles.styleSemiBold20(context),
-              ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(12),
+            child: Text(
+              "All Expenses",
+              style: AppStyles.styleSemiBold20(context),
             ),
-            const Spacer(),
-            AllExpensesHeaderRange(),
-          ],
-        ),
+          ),
+          const Spacer(),
+          AllExpensesHeaderRange(),
+        ],
       ),
     );
   }

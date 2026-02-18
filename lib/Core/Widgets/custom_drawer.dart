@@ -9,29 +9,43 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: UserInfoLitTile(
-            image: Assets.imagesAvatar3,
-            title: "hamza ghafar",
-            subtitle: "hamza@gmail.com",
+    return Ink(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 5,
+            offset: Offset(0, 3), // changes position of shadow
           ),
-        ),
-        DrawerListView(),
-        SliverFillRemaining(
-          hasScrollBody: false,
-          child: Column(
-            children: [
-              Expanded(child: const SizedBox()),
-              Userlogoutoptions(),
-            ],
+        ],
+      ),
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: UserInfoLitTile(
+              image: Assets.imagesAvatar3,
+              title: "hamza ghafar",
+              subtitle: "hamza@gmail.com",
+            ),
           ),
-        ),
-        // const SizedBox(height: 48),
+          DrawerListView(),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                Expanded(child: const SizedBox()),
+                Userlogoutoptions(),
+              ],
+            ),
+          ),
+          // const SizedBox(height: 48),
 
-        //const SizedBox(height: 48),
-      ],
+          //const SizedBox(height: 48),
+        ],
+      ),
     );
   }
 }
