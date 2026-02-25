@@ -13,7 +13,7 @@ class HomeDesktopLayout extends StatelessWidget {
         const Expanded(flex: 1, child: CustomDrawer()),
         const SizedBox(width: 32),
         Expanded(flex: 3, child: AllExpensesWidget()),
-        Expanded(flex: 2, child: SizedBox()),
+        Expanded(flex: 1, child: SizedBox()),
       ],
     );
   }
