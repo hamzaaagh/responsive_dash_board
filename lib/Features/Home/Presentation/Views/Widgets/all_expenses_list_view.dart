@@ -4,15 +4,15 @@ import 'package:responsive_dash_board/Core/Utils/app_images.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/all_expenses_item.dart';
 
 class AllExpensesItemListView extends StatefulWidget {
-  const AllExpensesItemListView({super.key,});
-  
+  const AllExpensesItemListView({super.key});
 
   @override
-  State<AllExpensesItemListView> createState() => _AllExpensesItemListViewState();
+  State<AllExpensesItemListView> createState() =>
+      _AllExpensesItemListViewState();
 }
 
 class _AllExpensesItemListViewState extends State<AllExpensesItemListView> {
-   final List<ItemModel> items = [
+  final List<ItemModel> items = [
     ItemModel(
       title: "Amount",
       date: "April 2022",
@@ -32,14 +32,15 @@ class _AllExpensesItemListViewState extends State<AllExpensesItemListView> {
       image: Assets.imagesExpenses,
     ),
   ];
+
   int activeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: items.asMap().entries.map((entry) {
-        int idx = entry.key;
-        ItemModel item = entry.value;
+        final idx = entry.key;
+        final item = entry.value;
 
         return Expanded(
           child: GestureDetector(
@@ -51,12 +52,8 @@ class _AllExpensesItemListViewState extends State<AllExpensesItemListView> {
               }
             },
             child: Padding(
-              // إضافة padding جانبي فقط للعنصر الأوسط (إذا كان هناك 3 عناصر)
-              padding: EdgeInsets.symmetric(horizontal: idx == 1 ? 12 : 0),
-              child: AllExpensesItem(
-                item: item,
-                isActive: idx == activeIndex,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: AllExpensesItem(item: item, isActive: idx == activeIndex),
             ),
           ),
         );
