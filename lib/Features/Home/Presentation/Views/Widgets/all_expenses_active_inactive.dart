@@ -40,7 +40,8 @@ class AllExpencesItemInActive extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 40),
+
+                // const SizedBox(width: 40),
                 const Icon(
                   Icons.arrow_forward_ios,
                   color: Color(0xff064061),
@@ -106,7 +107,7 @@ class AllExpencesItemActive extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 40),
+                //const SizedBox(width: 40),
                 Icon(
                   Icons.arrow_forward_ios,
                   color: Colors.white.withOpacity(0.8),
