@@ -1,10 +1,11 @@
+import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/Core/Utils/app_styles.dart';
-
 import 'package:responsive_dash_board/Core/Widgets/custom_drawer.dart';
 import 'package:responsive_dash_board/Core/Widgets/custom_parent_widget.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/midle_widget.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/my_card_widget.dart';
+import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/page_dots_row.dart';
 
 class HomeDesktopLayout extends StatelessWidget {
   const HomeDesktopLayout({super.key});
@@ -23,9 +24,16 @@ class HomeDesktopLayout extends StatelessWidget {
   }
 }
 
-class ThirdSection extends StatelessWidget {
+class ThirdSection extends StatefulWidget {
   const ThirdSection({super.key});
 
+  @override
+  State<ThirdSection> createState() => _ThirdSectionState();
+}
+
+class _ThirdSectionState extends State<ThirdSection> {
+  final _controller = PageController();
+  int _currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return CustomParentWidget(
@@ -34,7 +42,30 @@ class ThirdSection extends StatelessWidget {
         children: [
           Text("My Card", style: AppStyles.styleSemiBold20(context)),
           const SizedBox(height: 16),
-          MyCardWidget(),
+          ExpandablePageView.builder(
+            controller: _controller,
+            onPageChanged: (int index) {
+              setState(() {
+                _currentPage = index;
+              });
+            },
+            itemBuilder: (context, index) {
+              if (++index % 2 != 0) {
+                return MyCardWidget(
+                  name: "Hamza Ghafar",
+                  color: const Color(0xff4EB7F2),
+                );
+              } else {
+                return MyCardWidget(
+                  name: "John Doe",
+                  color: const Color(0xffF28B4E),
+                );
+              }
+            },
+            itemCount: 5, // Replace with actual number of cards
+          ),
+          const SizedBox(height: 8),
+          DotsRow(currentPage: _currentPage),
         ],
       ),
     );

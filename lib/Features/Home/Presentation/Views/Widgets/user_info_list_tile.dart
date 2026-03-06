@@ -5,10 +5,7 @@ import 'package:responsive_dash_board/Core/Utils/app_styles.dart';
 
 class UserInfoLitTile extends StatelessWidget {
   final UserInfoModel user;
-  UserInfoLitTile({
-    super.key, required this.user,
-    
-  });
+  const UserInfoLitTile({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {

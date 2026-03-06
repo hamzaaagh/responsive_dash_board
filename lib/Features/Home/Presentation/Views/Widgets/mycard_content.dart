@@ -4,8 +4,9 @@ import 'package:responsive_dash_board/Core/Utils/app_images.dart';
 import 'package:responsive_dash_board/Core/Utils/app_styles.dart';
 
 class MyCardContent extends StatelessWidget {
-  const MyCardContent({super.key});
+  const MyCardContent({super.key, required this.name});
 
+  final String name;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -21,7 +22,7 @@ class MyCardContent extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Name card",
+                    "Card Name",
                     maxLines: 1,
                     style: AppStyles.styleRegular12(
                       context,
@@ -30,7 +31,7 @@ class MyCardContent extends StatelessWidget {
                   FittedBox(
                     fit: BoxFit.scaleDown,
                     child: Text(
-                      "Hamza Ghafar",
+                      name,
                       maxLines: 1,
                       style: AppStyles.styleMedium16(
                         context,

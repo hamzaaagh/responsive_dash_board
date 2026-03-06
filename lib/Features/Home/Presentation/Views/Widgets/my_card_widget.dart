@@ -4,8 +4,9 @@ import 'package:responsive_dash_board/Core/Utils/app_images.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/mycard_content.dart';
 
 class MyCardWidget extends StatelessWidget {
-  const MyCardWidget({super.key});
-
+  const MyCardWidget({super.key, required this.name, required this.color});
+  final String name;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -18,12 +19,12 @@ class MyCardWidget extends StatelessWidget {
               image: AssetImage(Assets.imagesCardBackground),
               fit: BoxFit.fill,
             ),
-            color: Color(0xff4EB7F2),
+            color: color,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadiusGeometry.circular(12),
             ),
           ),
-          child: MyCardContent(),
+          child: MyCardContent(name: name),
         ),
       ),
     );
