@@ -6,6 +6,8 @@ import 'package:responsive_dash_board/Core/Widgets/custom_parent_widget.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/midle_widget.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/my_card_widget.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/page_dots_row.dart';
+import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/transiction_history_header.dart';
+import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/transiction_list_view.dart';
 
 class HomeDesktopLayout extends StatelessWidget {
   const HomeDesktopLayout({super.key});
@@ -35,39 +37,60 @@ class _ThirdSectionState extends State<ThirdSection> {
   final _controller = PageController();
   int _currentPage = 0;
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return CustomParentWidget(
-      widget: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("My Card", style: AppStyles.styleSemiBold20(context)),
-          const SizedBox(height: 16),
-          ExpandablePageView.builder(
-            controller: _controller,
-            onPageChanged: (int index) {
-              setState(() {
-                _currentPage = index;
-              });
-            },
-            itemBuilder: (context, index) {
-              if (++index % 2 != 0) {
-                return MyCardWidget(
-                  name: "Hamza Ghafar",
-                  color: const Color(0xff4EB7F2),
-                );
-              } else {
-                return MyCardWidget(
-                  name: "John Doe",
-                  color: const Color(0xffF28B4E),
-                );
-              }
-            },
-            itemCount: 5, // Replace with actual number of cards
+    return CustomScrollView(
+      slivers: [
+        SliverToBoxAdapter(
+          child: CustomParentWidget(
+            key: const ValueKey('main_section_card'),
+            widget: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("My Card", style: AppStyles.styleSemiBold20(context)),
+                const SizedBox(height: 16),
+                ExpandablePageView.builder(
+                  key: const PageStorageKey('expandable_page_view'),
+                  controller: _controller,
+                  onPageChanged: (int index) {
+                    setState(() {
+                      _currentPage = index;
+                    });
+                  },
+                  itemBuilder: (context, index) {
+                    if (++index % 2 != 0) {
+                      return MyCardWidget(
+                        name: "Hamza Ghafar",
+                        color: const Color(0xff4EB7F2),
+                      );
+                    } else {
+                      return MyCardWidget(
+                        name: "John Doe",
+                        color: const Color(0xffF28B4E),
+                      );
+                    }
+                  },
+                  itemCount: 5, // Replace with actual number of cards
+                ),
+                const SizedBox(height: 8),
+                DotsRow(currentPage: _currentPage),
+                const SizedBox(height: 8),
+                Divider(color: Colors.grey[300]),
+                TransictionHistoryHeader(),
+                TransictionListView(),
+              ],
+            ),
           ),
-          const SizedBox(height: 8),
-          DotsRow(currentPage: _currentPage),
-        ],
-      ),
+        ),
+        SliverToBoxAdapter(
+          child: CustomParentWidget(widget: const SizedBox(height: 90)),
+        ),
+      ],
     );
   }
 }
