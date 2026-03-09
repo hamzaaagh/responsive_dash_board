@@ -15,14 +15,17 @@ class IncomeSection extends StatelessWidget {
         children: [
           const IncomeHeader(),
           const SizedBox(height: 16),
-          Row(
-            children: [
-              Expanded(
-                child: AspectRatio(aspectRatio: 1, child: IncomeChart()),
-              ),
-              const SizedBox(width: 16),
-              Expanded(flex: 2, child: IncomeItems()),
-            ],
+          SizedBox(
+            height: 230,
+            child: Row(
+              children: const [
+                Expanded(
+                  child: AspectRatio(aspectRatio: 1, child: IncomeChart()),
+                ),
+                SizedBox(width: 16),
+                Expanded(flex: 2, child: IncomeItems()),
+              ],
+            ),
           ),
         ],
       ),

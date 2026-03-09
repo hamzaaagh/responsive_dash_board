@@ -10,7 +10,7 @@ class MidleWidget extends StatelessWidget {
     return CustomScrollView(
       slivers: const [
         SliverToBoxAdapter(child: AllExpensesWidget()),
-        //SliverToBoxAdapter(child: SizedBox(height: 10)),
+        
         SliverToBoxAdapter(child: QuickInvoiceWidget()),
       ],
     );
