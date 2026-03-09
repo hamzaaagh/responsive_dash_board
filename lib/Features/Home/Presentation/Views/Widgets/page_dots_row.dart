@@ -17,9 +17,7 @@ class DotsRow extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 4),
           child: CustomDots(
             isactive: _currentPage == index,
-            color: index % 2 != 0
-                ? const Color(0xffF28B4E)
-                : const Color(0xff4EB7F2),
+            color: index % 2 != 0 ? Color(0xff064061) : const Color(0xff4EB7F2),
           ),
         ),
       ),

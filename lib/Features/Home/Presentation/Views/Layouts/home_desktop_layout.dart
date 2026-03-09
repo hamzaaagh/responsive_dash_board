@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/Core/Utils/app_styles.dart';
 import 'package:responsive_dash_board/Core/Widgets/custom_drawer.dart';
 import 'package:responsive_dash_board/Core/Widgets/custom_parent_widget.dart';
+import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/income_section.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/midle_widget.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/my_card_widget.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/page_dots_row.dart';
@@ -18,9 +19,9 @@ class HomeDesktopLayout extends StatelessWidget {
       children: [
         const Expanded(flex: 1, child: CustomDrawer()),
         const SizedBox(width: 32),
-        Expanded(flex: 2, child: MidleWidget()),
+        Expanded(flex: 3, child: MidleWidget()),
         const SizedBox(width: 32),
-        Expanded(flex: 1, child: ThirdSection()),
+        Expanded(flex: 2, child: ThirdSection()),
       ],
     );
   }
@@ -71,7 +72,7 @@ class _ThirdSectionState extends State<ThirdSection> {
                     } else {
                       return MyCardWidget(
                         name: "John Doe",
-                        color: const Color(0xffF28B4E),
+                        color: const Color(0xff064061),
                       );
                     }
                   },
@@ -87,9 +88,7 @@ class _ThirdSectionState extends State<ThirdSection> {
             ),
           ),
         ),
-        SliverToBoxAdapter(
-          child: CustomParentWidget(widget: const SizedBox(height: 90)),
-        ),
+        SliverToBoxAdapter(child: IncomeSection()),
       ],
     );
   }
