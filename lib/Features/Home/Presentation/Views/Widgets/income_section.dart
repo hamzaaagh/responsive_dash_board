@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/Core/Widgets/custom_parent_widget.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/Income_list.dart';
+import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/detailed_income_chart.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/income_chart.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/income_header.dart';
 
@@ -9,6 +10,8 @@ class IncomeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    print("عرض النافذة: $width");
     return CustomParentWidget(
       widget: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -17,15 +20,20 @@ class IncomeSection extends StatelessWidget {
           const SizedBox(height: 16),
           SizedBox(
             height: 230,
-            child: Row(
-              children: const [
-                Expanded(
-                  child: AspectRatio(aspectRatio: 1, child: IncomeChart()),
-                ),
-                SizedBox(width: 16),
-                Expanded(flex: 2, child: IncomeItems()),
-              ],
-            ),
+            child: MediaQuery.sizeOf(context).width > 1200
+                ? Row(
+                    children: const [
+                      Expanded(
+                        child: AspectRatio(
+                          aspectRatio: 1,
+                          child: IncomeChart(),
+                        ),
+                      ),
+                      SizedBox(width: 16),
+                      Expanded(flex: 2, child: IncomeItems()),
+                    ],
+                  )
+                : Center(child: AspectRatio(aspectRatio: 1, child: DetailedIncomeChart())),
           ),
         ],
       ),

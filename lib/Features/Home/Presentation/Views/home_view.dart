@@ -8,9 +8,9 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
+    
     final GlobalKey<ScaffoldState> scaffoldkey = GlobalKey<ScaffoldState>();
-    print("عرض النافذة: $width");
+    
     return Scaffold(
       drawer: Container(
         color: Colors.white,

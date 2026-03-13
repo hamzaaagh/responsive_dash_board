@@ -1,0 +1,82 @@
+import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter/material.dart';
+
+class DetailedIncomeChart extends StatefulWidget {
+  const DetailedIncomeChart({super.key});
+
+  @override
+  State<DetailedIncomeChart> createState() => _DetailedIncomeChartState();
+}
+
+class _DetailedIncomeChartState extends State<DetailedIncomeChart> {
+  int activeIndex = -1;
+  @override
+  Widget build(BuildContext context) {
+    return PieChart(
+      PieChartData(
+        titleSunbeamLayout: false,
+        sectionsSpace: 0,
+        pieTouchData: PieTouchData(
+          touchCallback: (FlTouchEvent event, pieTouchResponse) {
+            setState(() {
+              if (!event.isInterestedForInteractions ||
+                  pieTouchResponse == null ||
+                  pieTouchResponse.touchedSection == null) {
+                activeIndex = -1; // العودة للحجم الطبيعي عند رفع الإصبع
+                return;
+              }
+              activeIndex =
+                  pieTouchResponse.touchedSection!.touchedSectionIndex;
+            });
+          },
+        ),
+        sections: [
+          PieChartSectionData(
+            value: 40,
+            color: Color(0xff208CC8),
+            title: '40%',
+            radius: activeIndex == 0 ? 60 : 50,
+            titleStyle: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          PieChartSectionData(
+            value: 30,
+            color: Color(0xff4EB7F2),
+            title: '30%',
+            radius: activeIndex == 1 ? 60 : 50,
+            titleStyle: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          PieChartSectionData(
+            value: 20,
+            color: Color(0xff064061),
+            title: '20%',
+            radius: activeIndex == 2 ? 60 : 50,
+            titleStyle: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          PieChartSectionData(
+            value: 10,
+            color: Color(0xffE2DECD),
+            title: '10%',
+            radius: activeIndex == 3 ? 60 : 50,
+            titleStyle: TextStyle(
+              color: Colors.white,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
