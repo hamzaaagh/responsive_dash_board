@@ -6,7 +6,13 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.sizeOf(context).width;
+    //final GlobalKey scaffoldkey;
+    print("عرض النافذة: $width");
     return Scaffold(
+      appBar: MediaQuery.sizeOf(context).width <= 800
+          ? AppBar(leading: Icon(Icons.menu, color: Colors.blue))
+          : null,
       backgroundColor: Color(0xffFAFAFA),
       body: HomeViewBody(),
     );

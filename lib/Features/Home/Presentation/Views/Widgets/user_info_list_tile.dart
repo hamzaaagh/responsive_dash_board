@@ -14,8 +14,15 @@ class UserInfoLitTile extends StatelessWidget {
       color: const Color(0xFFFAFAFA),
       child: ListTile(
         leading: SvgPicture.asset(user.image),
-        title: Text(user.title, style: AppStyles.styleSemiBold16(context)),
-        subtitle: Text(user.subtitle, style: AppStyles.styleRegular12(context)),
+        title: Text(
+          user.title,
+          style: AppStyles.styleRegular16(
+            context,
+          ).copyWith(fontWeight: FontWeight.w600),
+        ),
+        subtitle: FittedBox(
+          child: Text(user.subtitle, style: AppStyles.styleRegular12(context)),
+        ),
       ),
     );
   }

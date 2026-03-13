@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Widgets/Income_item.dart';
 
 class IncomeItems extends StatelessWidget {
-  const IncomeItems({
-    super.key,
-  });
+  const IncomeItems({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IncomeItem(
           title: "Design service",
@@ -25,11 +24,7 @@ class IncomeItems extends StatelessWidget {
           color: Color(0xff064061),
           amount: "20 %",
         ),
-        IncomeItem(
-          title: "Other",
-          color: Color(0xffE2DECD),
-          amount: "10 %",
-        ),
+        IncomeItem(title: "Other", color: Color(0xffE2DECD), amount: "10 %"),
       ],
     );
   }

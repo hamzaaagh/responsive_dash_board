@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_dash_board/Core/Utils/size_config.dart';
 
 class CustomLayoutBuilder extends StatelessWidget {
   const CustomLayoutBuilder({
@@ -12,9 +13,9 @@ class CustomLayoutBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (constraints.maxWidth < 600) {
+        if (constraints.maxWidth < SizeConfig.tablet) {
           return mobilelayout(context);
-        } else if (constraints.maxWidth < 1024) {
+        } else if (constraints.maxWidth < SizeConfig.desktop) {
           return tabletlayout(context);
         } else {
           return desktoplayout(context);

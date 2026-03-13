@@ -11,9 +11,13 @@ class Isactivedraweritem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+
     return ListTile(
       leading: SvgPicture.asset(drawerItem.image),
-      title: Text(drawerItem.title, style: AppStyles.styleBold16(context)),
+
+      title: 
+          Text(drawerItem.title, style: AppStyles.styleBold16(context)),
       trailing: Container(width: 3.267604351043701, color: Color(0xff4EB7F2)),
     );
   }
@@ -27,9 +31,10 @@ class Inactivedraweritem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return ListTile(
       leading: SvgPicture.asset(drawerItem.image),
-      title: Text(drawerItem.title, style: AppStyles.styleSemiBold16(context)),
+      title:  Text(drawerItem.title, style: AppStyles.styleRegular16(context)),
     );
   }
 }
