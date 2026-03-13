@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/Core/Widgets/custom_layout_builder.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Layouts/home_desktop_layout.dart';
+import 'package:responsive_dash_board/Features/Home/Presentation/Views/Layouts/home_mobile_layout.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/Layouts/home_tablet_layout.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -9,10 +10,9 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomLayoutBuilder(
-      mobilelayout: (context) => const SizedBox(child: Text("data")),
+      mobilelayout: (context) => const HomeMobileLayout(),
       tabletlayout: (context) => const HomeTabletLayout(),
       desktoplayout: (context) => const HomeDesktopLayout(),
     );
   }
 }
-  
