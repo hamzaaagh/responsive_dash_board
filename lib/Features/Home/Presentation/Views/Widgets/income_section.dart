@@ -20,8 +20,8 @@ class IncomeSection extends StatelessWidget {
           const SizedBox(height: 16),
           SizedBox(
             height: 230,
-            child: MediaQuery.sizeOf(context).width > 1200
-                ? Row(
+            child: MediaQuery.sizeOf(context).width < 1200 && MediaQuery.sizeOf(context).width > 800
+                ? Center(child: AspectRatio(aspectRatio: 1, child: DetailedIncomeChart())): Row(
                     children: const [
                       Expanded(
                         child: AspectRatio(
@@ -33,7 +33,7 @@ class IncomeSection extends StatelessWidget {
                       Expanded(flex: 2, child: IncomeItems()),
                     ],
                   )
-                : Center(child: AspectRatio(aspectRatio: 1, child: DetailedIncomeChart())),
+                 
           ),
         ],
       ),
