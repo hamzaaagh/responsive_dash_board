@@ -21,10 +21,7 @@ class CustomParentWidget extends StatelessWidget {
           ],
         ),
 
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child:widget,
-        ),
+        child: Padding(padding: const EdgeInsets.all(10), child: widget),
       ),
     );
   }

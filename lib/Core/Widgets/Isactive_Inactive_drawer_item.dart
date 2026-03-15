@@ -17,7 +17,8 @@ class Isactivedraweritem extends StatelessWidget {
       leading: SvgPicture.asset(drawerItem.image),
 
       title: 
-          Text(drawerItem.title, style: AppStyles.styleBold16(context)),
+          FittedBox(fit: BoxFit.scaleDown, alignment: Alignment.centerLeft,
+            child: Text(drawerItem.title, style: AppStyles.styleBold16(context))),
       trailing: Container(width: 3.267604351043701, color: Color(0xff4EB7F2)),
     );
   }
@@ -34,7 +35,10 @@ class Inactivedraweritem extends StatelessWidget {
     
     return ListTile(
       leading: SvgPicture.asset(drawerItem.image),
-      title:  Text(drawerItem.title, style: AppStyles.styleRegular16(context)),
+      title:  FittedBox(
+        fit: BoxFit.scaleDown,
+        alignment: AlignmentGeometry.centerLeft,
+        child: Text(drawerItem.title, style: AppStyles.styleRegular16(context))),
     );
   }
 }

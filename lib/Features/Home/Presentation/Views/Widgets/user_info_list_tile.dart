@@ -21,6 +21,7 @@ class UserInfoLitTile extends StatelessWidget {
           ).copyWith(fontWeight: FontWeight.w600),
         ),
         subtitle: FittedBox(
+          alignment: Alignment.centerLeft,
           fit: BoxFit.scaleDown,
           child: Text(user.subtitle, style: AppStyles.styleRegular12(context)),
         ),

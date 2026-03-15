@@ -38,6 +38,7 @@ class _AllExpensesItemListViewState extends State<AllExpensesItemListView> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      //mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: items.asMap().entries.map((entry) {
         final idx = entry.key;
         final item = entry.value;
@@ -51,9 +52,17 @@ class _AllExpensesItemListViewState extends State<AllExpensesItemListView> {
                 });
               }
             },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: AllExpensesItem(item: item, isActive: idx == activeIndex),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: AllExpensesItem(
+                    item: item,
+                    isActive: idx == activeIndex,
+                  ),
+                ),
+                SizedBox(width: 4),
+              ],
             ),
           ),
         );
