@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:responsive_dash_board/Features/Home/Presentation/Views/home_view.dart';
 
 void main() {
-
-  runApp(DevicePreview(
-    enabled: true,
-    builder: (BuildContext context) { return AdminDashboard();},)
+  runApp(
+    DevicePreview(
+      enabled: false,
+      builder: (BuildContext context) {
+        return AdminDashboard();
+      },
+    ),
   );
 }
 

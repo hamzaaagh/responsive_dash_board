@@ -10,8 +10,8 @@ class IncomeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width;
-    print("عرض النافذة: $width");
+    
+   
     return CustomParentWidget(
       widget: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
